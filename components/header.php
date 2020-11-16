@@ -126,7 +126,7 @@ padding: 8px;
 
 }
 .bg-red{
-    background: rgba(0,0,0,0.1);
+    background: rgba(255,0,0,0.9);
 }
 
     </style>
