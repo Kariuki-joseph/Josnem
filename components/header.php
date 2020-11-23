@@ -75,7 +75,7 @@ border-radius: 4px;
     text-transform: uppercase;
     font-family: all;
     text-decoration: underline;
-    text-decoration-color: yellow;  
+    text-decoration-color: #ff1919;  
 
 }
 .section-wrapper{

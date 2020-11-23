@@ -623,7 +623,7 @@ a img.aligncenter {
 }
 
 .top-navbar .navbar-light .navbar-nav li .dropdown-menu a:hover{
-	background: #eea412;
+	background: rgba(255,0,0,0.7);
 	color: #ffffff;
 }
 
@@ -710,7 +710,7 @@ a img.aligncenter {
 
 .box-slider .carousel-control-prev{
 	border-radius: 2px;
-	background: #eea412;
+	background: rgb(255,31,31);
 	position: absolute;
 	left: 0px;
 	font-size: 38px;
@@ -722,7 +722,7 @@ a img.aligncenter {
 }
 .box-slider .carousel-control-next{
 	border-radius: 2px;
-	background: #eea412;
+	background: rgb(255,31,31);
 	position: absolute;
 	right: 0px;
 	font-size: 38px;
@@ -771,7 +771,7 @@ a img.aligncenter {
 }
 
 .hover-btn-new::after {
-  background: #eea412 !important;
+  background: rgb(255,31,31) !important;
   height: 100%;
   left: 0;
   top: 0;
@@ -933,7 +933,7 @@ a img.aligncenter {
 }
 
 .first-section h2 strong{
-	color: #eea412;
+	color: #f80303;
 }
 
 .first-section .lead {
@@ -3140,7 +3140,7 @@ span.m_1 {
 
 .customer-box .nav-tabs > li > a.active{
 	border: none;
-	background: #eea412;
+	background: rgb(255,31,31);
 	color: #fff;
 	border-radius: 0px;
 }
@@ -3156,7 +3156,7 @@ span.m_1 {
 }
 
 .customer-box .nav-tabs > li > a:hover{
-	background: #eea412;
+	background: rgba(255,0,0,0.6);
 	color: #ffffff;
 	border: 0px;
 }
