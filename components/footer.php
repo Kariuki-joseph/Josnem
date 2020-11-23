@@ -27,6 +27,7 @@
                             <li><a href="index.php">Home</a></li>
                             <li><a href="admissions.php">Admissions</a></li>
                             <li><a href="teachers.php">Teachers</a></li>
+                            <li><a href="location.php">Location Map</a></li>
 							<li><a href="contacts.php">Contact Us</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->

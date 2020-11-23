@@ -53,6 +53,7 @@
 							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="departments.php">From The Departments</a></li>
+						<li class="nav-item"><a class="nav-link" href="location.php">Location Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="contacts.php">Contact Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
