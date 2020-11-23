@@ -94,6 +94,25 @@ border-radius: 4px;
     align-items: flex-end;
 
 }
+
+/*display in one column in mobile view*/
+@media (max-width: 500px){
+.section-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 9px;
+    margin-right: 9px;
+
+}
+.section-wrapper figure img{
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    
+}
+}
 @media screen{
     .section-wrapper p{
     font-size: 25px;
