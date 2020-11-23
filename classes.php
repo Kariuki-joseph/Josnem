@@ -516,7 +516,7 @@ class KCPEResult extends DB{
 function __construct($year){
 // $this->conn = mysqli_connect("localhost","root","","j_academy");
 $sql = "SELECT * FROM kcpe_results WHERE year = '$year'";
-$query = mysqli_query($this->conn, $sql);
+$query = mysqli_query(DB::conn(), $sql);
 //fetch an array instance
 $row = mysqli_fetch_array($query);
 
