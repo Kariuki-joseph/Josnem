@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    -export DEPLOYPAYTH=/home1/josnems1/public_html/copyVcs
+    -export DEPLOYPATH=/home1/josnems1/public_html/copyVcs
     - /bin/cp -r index.php $DEPLOYPATH
     - /bin/cp -r components/header.php $DEPLOYPATH
     - /bin/cp -r components/navbar.php $DEPLOYPATH
