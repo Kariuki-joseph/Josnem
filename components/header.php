@@ -32,7 +32,7 @@ include 'dbConnect.php';
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     <!--favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
@@ -160,6 +160,9 @@ padding: 8px;
 }
 .bg-red{
     background: rgba(255,0,0,0.9);
+}
+.dropdown-item{
+    text-transform: uppercase;
 }
 
     </style>
