@@ -96,7 +96,7 @@ include 'components/header.php';
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">
-				<div id="home" class="first-section" style="background-image:url('images/slider-01.jpg');">
+				<div id="home" class="first-section" style="background-image:url('images/slider1.jpg');">
 					<div class="dtab">
 						<div class="container">
 							<div class="row">
@@ -113,7 +113,7 @@ include 'components/header.php';
 				</div><!-- end section -->
 			</div>
 			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/slider-02.jpg');">
+				<div id="home" class="first-section" style="background-image:url('images/slider2.jpg');">
 					<div class="dtab">
 						<div class="container">
 							<div class="row">
@@ -130,7 +130,7 @@ include 'components/header.php';
 				</div><!-- end section -->
 			</div>
 			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url('images/slider-03.jpg');">
+				<div id="home" class="first-section" style="background-image:url('images/slider3.jpg');">
 					<div class="dtab">
 						<div class="container">
 							<div class="row">

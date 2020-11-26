@@ -117,7 +117,7 @@ include 'components/header.php';
 					<img src="<?php echo $entry['avator']; ?>">
 				</figure>
 				<p>
-					<strong><?php echo $entry['name']; ?></strong><i> <?php echo $entry['position']; ?></i><br>
+					<strong><?php echo $entry['name']; ?></strong>-<i><?php echo $entry['position']; ?></i><br>
 					<?php echo $entry['message']; ?>
 				</p>
 			</div>
