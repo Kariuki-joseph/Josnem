@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/josnems1/public_html/components
+    -/bin/cp -r index.php $ DEPLOYPATH
