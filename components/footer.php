@@ -6,7 +6,8 @@
                         <div class="widget-title">
                             <h3>About US</h3>
                         </div>
-                        <p>Josnem Academy is an institution founded in 2007 by the board of directors namely: Francis Gichuki, Maina Gitau among others. We are purposeful to providing quality and affordable learning to our students.
+                        <p>Josnem Schools is a mixed day and boarding primary school located in Mirangine sub-county, Nyandarua county; 5km off Nakuru-Dondori highway.<<<a href="location.php">View Map</a>>><br>
+                        The school is laid on a strong christian values, with the main aim being to empower the society and to be a center of excellence.
                         </p>   
 						<div class="footer-right">
 							<ul class="footer-links-soi">

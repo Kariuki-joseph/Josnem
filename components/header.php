@@ -156,6 +156,7 @@ padding: 8px;
     font-size: 25px;
     text-decoration: underline;
     font-weight: 300px;
+    text-transform: uppercase;
 
 }
 .bg-red{

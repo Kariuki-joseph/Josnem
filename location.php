@@ -5,7 +5,7 @@ include 'components/header.php';
 include 'components/navBar.php';
 ?>
 <!--embed map-->
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d249.35995114861953!2d36.23700355966957!3d-0.3118620772561717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829971abe52a7b3%3A0x259d4adac781bf69!2sJosnem%20Academy!5e0!3m2!1sen!2ske!4v1605699946902!5m2!1sen!2ske" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1021378.3563219234!2d35.67678376604265!3d-0.3118989997724337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1829971abe52a7b3%3A0x259d4adac781bf69!2sJosnem%20Academy!5e0!3m2!1sen!2ske!4v1606728265216!5m2!1sen!2ske" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
 <!--/ embed map-->
 <?php
 //footer

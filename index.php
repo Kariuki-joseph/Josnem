@@ -146,6 +146,39 @@ include 'components/header.php';
 					</div>
 				</div><!-- end section -->
 			</div>
+			<div class="carousel-item">
+				<div id="home" class="first-section" style="background-image:url('images/slider4.jpg');">
+					<div class="dtab">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 text-center">
+									<div class="big-tagline">
+										<h2 data-animation="animated zoomInRight">JOSNEM <strong>Schools</strong></h2>
+										<p class="lead" data-animation="animated fadeInLeft">To be a centre of quality learning for educational excellence.</p>
+											<a href="contacts.php" class="hover-btn-new"><span>Contact Us</span></a>
+									</div>
+								</div>
+							</div><!-- end row -->            
+						</div><!-- end container -->
+					</div>
+				</div><!-- end section -->
+			</div><div class="carousel-item">
+				<div id="home" class="first-section" style="background-image:url('images/slider5.jpg');">
+					<div class="dtab">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 text-center">
+									<div class="big-tagline">
+										<h2 data-animation="animated zoomInRight">JOSNEM <strong>Schools</strong></h2>
+										<p class="lead" data-animation="animated fadeInLeft">To be a centre of quality learning for educational excellence.</p>
+											<a href="contacts.php" class="hover-btn-new"><span>Contact Us</span></a>
+									</div>
+								</div>
+							</div><!-- end row -->            
+						</div><!-- end container -->
+					</div>
+				</div><!-- end section -->
+			</div>
 			<!-- Left Control -->
 			<a class="new-effect carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 				<span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -162,13 +195,26 @@ include 'components/header.php';
 	
     <div id="overviews" class="section wb">
         <div class="container">
-            <div class="section-title row text-center">
+            <div class="section-title row text-left">
                 <div class="col-md-8 offset-md-2">
-                    <h3>About</h3>
-                    <p class="lead">Josnem Academy is an institution founded in 2007 by the board of directors namely: Francis Gichuki, Maina Gitau among others. We are purposeful to providing quality and affordable learning to our students.
-                    <br>
-                    <strong>Join us today!</strong>
-					</p>
+                    <h3 class="text-center">About</h3>
+<p class="lead">Josnem school is a mixed day and boarding school laid onstrong christian values.The school is located in Nyandarua County, Mirangine Sub-County 5km from Nakuru-Dondori highway.<<<a href="location.php">View map</a>>>
+<br>
+The foundation stone of the school was laid on the grounds of a Successful Academic Institution.
+<br><br>
+The main aim was to empower the society and as ussual, be a center of excellence.
+The first national examination by Josnemians was in 2009 where 39 candidates were enrolled and managed a mean score of 312 marks.
+The mean score has has been appreciating over the years, and through hardwork and determination, the school recorded a colorful mean score
+of 389 marks(2011) ranking it position 9 countrywide and a mean score of 411 marks(2013) ranking it position 6 countrywide.<<<a href="#academic-achievements">See the results</a>>>
+<br><br>
+With a vision of being a center of quality learning for educational excellence, <b>Hard-work + Determination + Discipline</b> has <b>Never</b> disappointed our
+mission '<strong><i>TO TRAIN AND EQUIP LEARNERS WITH KNOWLEDGE, SKILLS AND RIGHT ATTITUDE FOR SELF ACTUALIZATION</i></strong>';
+Still  convinced that hardwork wins since the school now has E.C.D.E. diploma college all under the school umbrella.
+<br><br>
+We are concerned and strongly feel that the school will forever fly high.<br>
+
+<strong><center><i>...MAY GOD BLESS JOSNEM!</i></center></strong>
+</p>
                 </div>
             </div><!-- end title -->
         </div><!-- end container -->
@@ -178,7 +224,7 @@ include 'components/header.php';
 		<div class="container">
 			 <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <h3>Our Achievements</h3>
+                    <h3 id="academic-achievements">Our Achievements</h3>
                     <p class="lead">In our success milestones, we have recorded the below listed academic achievements, and we aim to do even better.</p>
                 </div>
             </div><!-- end title -->
