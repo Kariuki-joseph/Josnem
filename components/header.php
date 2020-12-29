@@ -162,10 +162,28 @@ padding: 8px;
 .bg-red{
     background: rgba(255,0,0,0.9);
 }
+button.bg-red:hover{
+    background: rgba(255,0,0,0.6);
+}
 .dropdown-item{
     text-transform: uppercase;
 }
 
+#receipt_preview{
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+}
+div.receipt_preview img{
+    width: 100%;
+    height: 300px;
+}
+
+.validate{
+    display:block;
+    color:red;
+    margin-left: 2px;
+}
     </style>
 
     <!--[if lt IE 9]>

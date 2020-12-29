@@ -55,6 +55,7 @@
 						<li class="nav-item"><a class="nav-link" href="departments.php">From The Departments</a></li>
 						<li class="nav-item"><a class="nav-link" href="location.php">Location Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="contacts.php">Contact Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#modal_fees_payment">Pay Fees</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log orange" href="#" data-toggle="modal" data-target="#login"><span>Login</span></a></li>
@@ -63,3 +64,74 @@
 			</div>
 		</nav>
 	</header>
+
+	<!-- fees payment modal-->
+	<div class="modal" id="modal_fees_payment">
+		<div class="modal-dialog modal-dialog-centered modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+
+				</div>
+				<div class="modal-body">
+					<div class="container">
+					<section id="section1">
+						<form action="#" method="post" id="form_fees_payment">
+								<div class="form-group">
+									<input type="number" name="adm_number" id="adm_number" class="form-control" placeholder="Enter Admission Number to proceed." data-msg="Plese enter admission number">
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<select name="payment" id="payment" class="form-control" data-msg="Plese select a payment to proceed.">
+										<option value="">--Select the payment--</option>
+										<?php
+											$payment = new Payable();
+											$upcomings = $payment->getUpcoming();
+											while($pay = mysqli_fetch_array($upcomings)){
+												?>
+												<option value="<?php echo $pay['name']; ?>"><?php echo $pay['name']; ?></option>
+										<?php
+											}
+										?>
+									</select>
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<input type="number" name="amount" id="amount" class="form-control" placeholder="Enter Amount e.g. 1000" data-msg="Plese enter amount paid to proceed.">
+									<div class="validate"></div>
+								</div>
+								<div class="form-group">
+									<input type="file" name="receipt" id="receipt" class="form-control" data-msg="Plese select the payment receipt to continue.">
+									<div class="validate"></div>
+								</div>
+								<div class="receipt_preview">
+									<img src="" alt="Payment Receipt" id="receipt_img" style="display: none;">
+								</div>
+						</form>
+						<div class="d-flex justify-content-between mr-4">
+							<button class="btn mt-3 bg-red" onclick="cancelPayment()"> CANCEL  <i class="fa fa-times"></i></button>
+							<button class="btn bg-red mt-3" id="btn_next">NEXT <i class="fa fa-arrow-right"></i></button>
+						</div>
+					</section>
+					<section id="section2" class="d-none">
+					<p> </p>
+					<div class="d-flex justify-content-between">
+					<button class="btn bg-red" id="btn_back" onclick="goToSection1()"><i class="fa fa-arrow-left"></i> BACK</button>
+					<button class="btn bg-red" onclick="submitPayment()"><i class="fa fa-paper-plane-o"></i> CONFIRM AND SEND</button>
+					</div>					
+					</section>
+					<section id="section3" class="d-none">
+					<p> </p>
+					<div class="d-flex justify-content-end">
+						<button id="btn_close_modal_payment" class="btn bg-red" class="close" data-dismiss="modal" onclick="finishPayment()"> CLOSE &times;</button>
+					</div>
+					</section>
+					</div>
+				</div>
+				<!-- <div class="modal-footer">
+					<button class="btn btn-danger" id="btn_next_1">NEXT</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<!--/ fees payment modal-->
+	

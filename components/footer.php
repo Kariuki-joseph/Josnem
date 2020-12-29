@@ -71,11 +71,8 @@
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
 	<script src="js/timeline.min.js"></script>
-    <script src="scripts1.js"></script>
-    <!--jquery & bootstrap js-->
-    <script src="js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="js/scripts.js"></script>
+    <script src="scripts.js"></script>
 
 	<script>
 		timeline(document.querySelectorAll('.timeline'), {

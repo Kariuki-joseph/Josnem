@@ -65,7 +65,7 @@ function(res){ document.querySelector('#tblResults').innerHTML=res;
 
  //reports All students onchange  //payment change 
  function fetchByPayment(payment){
- console.log("ftching by"); 
+ console.log("fetching by"); 
  } //condition change
 function fetchByCondition(condition){
  	

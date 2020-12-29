@@ -248,13 +248,24 @@ function getByPaymentAndAdm($pymt,$adm){
 	$query = $this->query($sql);
 	return $query;
 }
-
+// get payment summary
 function getSummary($pymt,$condition,$amt){
 		$sql = "SELECT * FROM payments_summary WHERE p_for='$pymt' AND amount $condition $amt";
 
 		$query = mysqli_query($this->conn,$sql);
 		return $query;
 	}
+//pay feees
+function pay($adm,$payment, $amount, $receipt){
+$sql = "INSERT INTO fees_payments(adm,amount_paid,p_for,receipt_img) VALUES('$adm', '$amount', '$payment','$receipt')";
+$query = mysqli_query($this->conn, $sql);
+if($query){
+	return true;
+}
+return false;
+
+}
+
 }
 /////////////////////////////////////////////////////////////////////
 class Report extends DB{
