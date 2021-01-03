@@ -24,7 +24,10 @@
     - /bin/cp reports.php $DEPLOYPATH
     - /bin/cp results.php $DEPLOYPATH
     - /bin/cp scripts.js $DEPLOYPATH
-    - /bin/cp style.css $DEPLOYPATH   
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp fees_upload.php $DEPLOYPATH
+    - /bin/cp add_student_details.html $DEPLOYPATH
+    - /bin/cp processAddStudent.php $DEPLOYPATH   
 
 
 
