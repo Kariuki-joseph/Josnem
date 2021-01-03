@@ -2,32 +2,31 @@
   deployment:
     tasks:                   
       - export DEPLOYPATH=/home1/josnems1/public_html
-      - /bin/cp Admin/ $DEPLOYPATH
-      - /bin/cp bootstrap/ $DEPLOYPATH
-      - /bin/cp components/ $DEPLOYPATH
-      - /bin/cp css/ $DEPLOYPATH
-      - /bin/cp font-awesome/ $DEPLOYPATH
-      - /bin/cp fonts/ $DEPLOYPATH
-      - /bin/cp icons/ $DEPLOYPATH
-      - /bin/cp js/ $DEPLOYPATH
-      - /bin/cp Login/ $DEPLOYPATH
-      - /bin/cp classes.php $DEPLOYPATH
-      - /bin/cp contacts.php $DEPLOYPATH
-      - /bin/cp dbConnect.php $DEPLOYPATH
-      - /bin/cp departments.php $DEPLOYPAsTH
-      - /bin/cp fees_upload.php $DEPLOYPATH
-      - /bin/cp feesPayment.php $DEPLOYPATH
-      - /bin/cp gallery.php $DEPLOYPATH
-      - /bin/cp index.php $DEPLOYPATH
-      - /bin/cp location.php $DEPLOYPATH
-      - /bin/cp processCrude.php $DEPLOYPATH
-      - /bin/cp reports.php $DEPLOYPATH
-      - /bin/cp results.php $DEPLOYPATH
-      - /bin/cp scripts.js $DEPLOYPATH
-      - /bin/cp style.css $DEPLOYPATH
-      - /bin/cp fees_upload.php $DEPLOYPATH
-      - /bin/cp add_student_details.html $DEPLOYPATH
-      - /bin/cp processAddStudent.php $DEPLOYPATH   
+      - /bin/cp -r Admin/ $DEPLOYPATH
+      - /bin/cp -r bootstrap/ $DEPLOYPATH
+      - /bin/cp -r components/ $DEPLOYPATH
+      - /bin/cp -r css/ $DEPLOYPATH
+      - /bin/cp -r font-awesome/ $DEPLOYPATH
+      - /bin/cp -r fonts/ $DEPLOYPATH
+      - /bin/cp -r icons/ $DEPLOYPATH
+      - /bin/cp -r js/ $DEPLOYPATH
+      - /bin/cp -r Login/ $DEPLOYPATH
+      - /bin/cp -r classes.php $DEPLOYPATH
+      - /bin/cp -r contacts.php $DEPLOYPATH
+      - /bin/cp -r departments.php $DEPLOYPAsTH
+      - /bin/cp -r fees_upload.php $DEPLOYPATH
+      - /bin/cp -r feesPayment.php $DEPLOYPATH
+      - /bin/cp -r gallery.php $DEPLOYPATH
+      - /bin/cp -r index.php $DEPLOYPATH
+      - /bin/cp -r location.php $DEPLOYPATH
+      - /bin/cp -r processCrude.php $DEPLOYPATH
+      - /bin/cp -r reports.php $DEPLOYPATH
+      - /bin/cp -r results.php $DEPLOYPATH
+      - /bin/cp -r scripts.js $DEPLOYPATH
+      - /bin/cp -r style.css $DEPLOYPATH
+      - /bin/cp -r fees_upload.php $DEPLOYPATH
+      - /bin/cp -r add_student_details.html $DEPLOYPATH
+      - /bin/cp -r processAddStudent.php $DEPLOYPATH   
 
 
 
