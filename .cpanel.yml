@@ -1,6 +1,6 @@
 ---
   deployment:
-  tasks:                   
+    tasks:                   
     - export DEPLOYPATH=/home1/josnems1/public_html
     - /bin/cp Admin/ $DEPLOYPATH
     - /bin/cp bootstrap/ $DEPLOYPATH
