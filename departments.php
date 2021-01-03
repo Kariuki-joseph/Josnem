@@ -11,7 +11,7 @@ include 'components/header.php';
 		<div class="modal-content">
 			<div class="modal-header tit-up">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Customer Login</h4>
+				<h4 class="modal-title">Login</h4>
 			</div>
 			<div class="modal-body customer-box">
 				<!-- Nav tabs -->

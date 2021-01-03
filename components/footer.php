@@ -41,7 +41,7 @@
 
                         <ul class="footer-links">
                             <li><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:josnemschools@yahoo.com">josnemschools@yahoo.com</a></li>
-                            <li><i class="fa fa-dribbble fa-lg"></i><a href="#">www.josnemschools.ac.ke</a></li>
+                            <li><i class="fa fa-dribbble fa-lg"></i><a href="#">www.josnemschools.com</a></li>
                             <li><i class="fa fa-envelope fa-lg"></i>PO Box 1491-20100, NAKURU</li>
                             <li><i class="fa fa-phone fa-md"></i>0714 947 598</li>
                             <li><i class="fa fa-phone fa-md"></i>0721 871 974</li>
@@ -73,6 +73,7 @@
 	<script src="js/timeline.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="scripts.js"></script>
+    <!--boostrap js-->
 
 	<script>
 		timeline(document.querySelectorAll('.timeline'), {

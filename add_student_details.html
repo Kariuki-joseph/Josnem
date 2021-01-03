@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="row mt-3">
+    <div class="col-md-6">
+    <div class="container">
+        <form action="" method="post" id="formAddStudentDetails">
+        <div class="form-group">
+            <input type="text" name="fullNames" id="" placeholder="Full Names" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" name="adm" id="" placeholder="Adm No." class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="text" name="class" id="" placeholder="Class" class="form-control">
+        </div>
+        <div class="form-group">
+            <button id="btnSubmit" type="submit" name="send" class="btn btn-primary btn-lg">Add <i class="fa fa-paper-plane"></i></button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <div class="col-md-6 h-100 overflow-hidden">
+    <h5 id="students_added">Students added</h5>
+    <ol class="available-students">
+    </ol>
+    </div>
+</div>
+<script>
+    let mForm = document.getElementById('formAddStudentDetails');
+    mForm.addEventListener('submit', e=>{
+        e.preventDefault();
+        let fd = new FormData(mForm);
+        fetch('processAddStudent.php',{
+        method:'POST',
+        body: fd
+    }).then(response=> response.json())
+    .then(response=>{
+        let li ='<ol>';
+        for(let x=0; x<response.length; x++){
+            li += `<li>${response[x].name} ${response[x].adm} ${response[x].class}</li>`
+        }
+        li += '</ol>';
+        document.querySelector('.available-students').innerHTML=li;
+        document.querySelector('#students_added').innerText = 'Students added: ' +response.length;
+    }).catch(err=>console.log(err));
+    });
+
+</script>
+</body>
+</html>

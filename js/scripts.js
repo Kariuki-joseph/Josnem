@@ -48,18 +48,34 @@ $('#upcoming_payables').html(res);
 }); 
 }
 
-//reports for All students on button click
+//reports for All students
 $('#btnSearchAll').addEventListener('click',function(){
- let payment =document.querySelector('#paymentFor').value;
+let cls = document.querySelector('#class').value;
+let payment =document.querySelector('#paymentFor').value;
  let condition = document.querySelector('#condition').value;
 let amount = document.querySelector('#amount').value;
 
 //check for empty fields 
 if (isEmpty(amount)) { return; }
 
-xhr("processCrude.php?getAll=true&pymt="+payment+"&cnd="+condition+"&amt="+amount,
-function(res){ document.querySelector('#tblResults').innerHTML=res; 
-});
+let queryParams = new FormData();
+queryParams.append('class', cls);
+queryParams.append('payment', payment);
+queryParams.append('condition', condition);
+queryParams.append('amount', amount);
+
+fetch('process-get-reports-all.php',{
+	method: 'POST',
+	body: queryParams
+}).then(response=>response.text())
+.then(response={
+
+}).catch(err=>console.log(err));
+// xhr("processCrude.php?getAll=true&pymt="+payment+"&cnd="+condition+"&amt="+amount+"&class="+cls,
+// function(res){
+// 	//  document.querySelector('#tblResults').innerHTML=res; 
+// 	console.log(res);
+// });
 
 });
 
@@ -74,11 +90,11 @@ function fetchByCondition(condition){
 btnSearchOne.addEventListener('click',function(){
  // 
  var adm = $("#admNo").value;
- // console.log(adm); //
 xhr("processCrude.php?getOne=true&adm="+adm+"&") 
 // 
 }); 
 
+//get payment details of a certain student
 function getReportSpecific(){ 
 let adm = document.querySelector('#admNo').value; 
 let pymt = document.querySelector('#paymentFor').value;
@@ -93,16 +109,17 @@ table.innerHTML=res;
 }); 
 }
 
-//getting overall results
+//getting overall results(reportOverall)
 function getOverall(){
 	let pymt = document.querySelector('#paymentFor').value;
 	let bal_rep = document.querySelector('#bal_report').value;
 	if (bal_rep == 'Report') {
-		//get report
+		//get payment report
 		xhr("processCrude.php?getOverall=true&pymt="+pymt+"&bal_rep="+bal_rep,function(response){
 			//fill the table
 			document.querySelector('#tableResult').innerHTML=response;
 		});
+		//get payment summary of the payment
 		xhr("processCrude.php?getSummary=true&pymt="+pymt, function(res){
 			document.querySelector('#paymentSummary').innerHTML=res;
 		});
@@ -137,4 +154,16 @@ function addDepartmentCategory(){
 	document.querySelector('#cc-deptCategoryName').value='';
 	document.querySelector('#availCategories').innerHTML=res;
 	});
+}
+
+//preview of receipts
+function openReceiptPreview(receiptHolder){
+let receiptSrc = receiptHolder.getAttribute('receipt-img');
+let receipt_for = receiptHolder.getAttribute('data-for');
+let receiptHeader = document.querySelector('div#modal_receipt_preview div.modal-header');
+let receiptImage = document.querySelector('#receipt_image');
+receiptImage.setAttribute('src', receiptSrc);
+receiptHeader.innerHTML='Receipt for: '+receipt_for;
+$('#modal_receipt_preview').modal('show');
+
 }

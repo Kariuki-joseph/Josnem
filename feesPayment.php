@@ -29,11 +29,17 @@ if(mysqli_num_rows($query) == 0){
         $resp['status']=1;
         $resp['name']= $student->getName();
         $resp['payment']= $payment;
-        $resp['amount'] = $amount; 
-        $receipt = "IMAGES/image1.jpg";
+        $resp['amount'] = "Ksh ".number_format($amount,2);; 
+        $receipt = $_FILES['receipt'];
+        //try upload
+        $fileExt = pathinfo(basename($_FILES['receipt']['name']), PATHINFO_EXTENSION);
+        $fileName = "receipts/".bin2hex(random_bytes(10)).".".$fileExt;
+        
+        move_uploaded_file($_FILES['receipt']['tmp_name'], "Admin/".$fileName);
+
         $pymt = new Payment();
         //make payment
-        $payment_submitted = $pymt->pay($adm,$payment, $amount, $receipt);   
+        $payment_submitted = $pymt->pay($adm,$payment, $amount, $fileName);   
         if($payment_submitted){
             //get balance
            $balance = $pymt->getBalance($pymt->getAmtToBePaid($payment),$pymt->getTotalAmtPaid($adm,$payment));

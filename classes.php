@@ -134,12 +134,11 @@ function getAllStudents(){
 	return $query;
 }
 //getting sum paid
-function getSum($adm,$pymt){
+function getTotalAmtPaid($adm,$pymt){
 	$sql = "SELECT SUM(amount_paid) as amt FROM fees_payments WHERE adm = '$adm' AND p_for='$pymt'";
 	$query = $this->query($sql);
-	while ($row = mysqli_fetch_array($query)) {
-		return $row['amt'];
-	}
+	$row = mysqli_fetch_array($query);
+	return $row['amt'];
 	
 }
 
@@ -148,7 +147,7 @@ function getSum($adm,$pymt){
 
 class Payable extends DB{
 
-//adding records
+//add payments to be paid
 function addPayable($name,$amt){
 	$sql = "INSERT INTO payables(name,amount) VALUES('$name','$amt')";
 	$query = mysqli_query($this->conn, $sql);
@@ -159,21 +158,21 @@ function addPayable($name,$amt){
 	}
 }
 
-//getting all the records
+//getting available payments to be paid
 function getAvailable(){
 	$sql = "SELECT * FROM payables";
 	$query = $this->query($sql);
 	return $query;
 }
 	
-//getting the upcoming
+//getting the upcoming payments
 function getUpcoming(){
 	$sql = "SELECT * FROM payables_upcoming";
 	$query = $this->query($sql);
 	return $query;
 }
 
-//adding an upcoming payable
+//adding an upcoming payment
 function addPayableUpcoming($id,$name,$amount){
 $sql = "INSERT INTO payables_upcoming(id,name,amount) VALUES('$id','$name','$amount')";
 $query = $this->query($sql);
@@ -185,7 +184,7 @@ if ($query) {
 
 }
 
-// deleting an upcoing payable
+// deleting an upcoming payable
 function deletePayableUpcoming($id){
 	$sql = "DELETE FROM payables_upcoming WHERE id='$id'";
 	$query = $this->query($sql);
@@ -200,7 +199,7 @@ function deletePayableUpcoming($id){
 }
 ////////////////////////////////////////////////////////////////////////
 class Payment extends DB{
-	//total amt by a student
+	//total amt paid by a student
 function getTotalAmtPaid($adm,$for){
 $amt = 0;
 $sql = "SELECT * FROM fees_payments WHERE adm='$adm' AND p_for='$for'";
@@ -248,10 +247,9 @@ function getByPaymentAndAdm($pymt,$adm){
 	$query = $this->query($sql);
 	return $query;
 }
-// get payment summary
+// get payment summary based on a condition
 function getSummary($pymt,$condition,$amt){
 		$sql = "SELECT * FROM payments_summary WHERE p_for='$pymt' AND amount $condition $amt";
-
 		$query = mysqli_query($this->conn,$sql);
 		return $query;
 	}
@@ -264,6 +262,20 @@ if($query){
 }
 return false;
 
+}
+
+//update fees summary table
+function updatePaymentSummary($adm,$payment){
+	$sql = "SELECT * FROM fees_payments";
+	$query = mysqli_query($this->conn, $sql);
+	while($row = mysqli_fetch_array($query)){
+		$studAdm = $row['adm'];
+		$sql = "SELECT * FROM fees_payments WHERE adm = '$studAdm' AND p_for='$payment'";
+		$query = mysqli_query($this->conn, $sql);
+		while ($row = mysqli_fetch_array($query)) {
+			$sql = "SELECT * FROM fees_";
+		}
+	}
 }
 
 }
@@ -374,10 +386,7 @@ class PaymentSummary extends DB{
 			$query = mysqli_query(DB::conn(),$sql);
 		}
 	}
-	//setters
-	function setAmount($amount){
-		$this->amount = $amount;
-	}
+	
 	function getSummary($adm,$pymt,$condition,$amt){
 		$sql = "SELECT * FROM payments_summary WHERE adm ='$adm' AND p_for='$pymt' AND amount $condition $amt";
 

@@ -25,12 +25,12 @@ include 'components/header.php';
 						<form role="form" class="form-horizontal">
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email1" placeholder="Name" type="text">
+									<input class="form-control" id="adm" placeholder="Admission Number" type="text">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+									<input class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
 								</div>
 							</div>
 							<div class="row">
@@ -52,12 +52,12 @@ include 'components/header.php';
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email" placeholder="Email" type="email">
+									<input class="form-control" id="class" placeholder="Class" type="text">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+									<input class="form-control" id="adm" placeholder="Admission Number" type="text">
 								</div>
 							</div>
 							<div class="form-group">

@@ -99,7 +99,7 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="kcpe-results.php">
-                                <i class="fa fa-comments-o"></i>Add KCPE Result
+                                <i class="fa fa-graduation-cap"></i>Add KCPE Result
                             </a>
                         </li>
                         <?php

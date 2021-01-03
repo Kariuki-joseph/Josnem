@@ -14,6 +14,20 @@ include 'header.php';
             <?php
             include 'headerDesktop.php';
             ?>
+            <!--modal for receipt preview-->
+            <div class="modal" role="modal" id="modal_receipt_preview">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header"></div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <img src="receipts/bf234d4237e3c8480c01.jpeg" alt="Receipt for this payment seems to be missing." id = "receipt_image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--modal for receipt preview-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -54,7 +68,6 @@ include 'header.php';
                                     
                                 </div>
                                 <!-- END MAP DATA-->
-                          
                                <!--table display records-->
                                <div class="row">
                                <div class="col-md-12">

@@ -24,6 +24,21 @@ include 'header.php';
                                     <h3 class="title-3 m-b-30">
                                         <i class="zmdi"></i>Reports All Students</h3>
                                     <div class="filters">
+                                    <div class="rs-select2--dark rs-select2--sm rs-select2--border">
+                                            <select class="js-select2 au-select-dark" name="time" id="class">
+                                                <option selected="selected" value="any">Any Class</option>
+                                                <?php
+                                                for ($i=1; $i < 9; $i++) { 
+                                                    if($i < 5){
+                                                        echo '<option>Grade '.$i.'</option>';
+                                                    }else{
+                                                        echo '<option>Class '.$i.'</option>';
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
                                         <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
                                          <select class="js-select2" name="property" id="paymentFor" onchange="fetchByPayment(this.value);">
 

@@ -81,45 +81,60 @@ elseif (isset($_GET['payableId'])) {
 //////////////////////////////////////////////////////////////
 //gets payment records of all students
 elseif (isset($_GET['getAll'])) {
-	//get values
-	$pymt = htmlentities($_GET['pymt']);
-	$condition = $_GET['cnd'];
-	$amount = htmlentities($_GET['amt']);
-$payment = new Payment();
-$query = $payment->getSummary($pymt,$condition,$amount);
-
-?>
-<table cellpadding="5px" border="2px" width="100%" class="mt-3" id="tblResults">
-<thead>
-    <tr>
-        <th>Name</th>
-        <th>Adm No.</th>
-        <th>Class</th>
-        <th>Amount</th>
-     </tr>
-</thead>
-<tbody>
-    <?php
-    while ($row = mysqli_fetch_array($query)) {
-    $students = new Student1();
-    $student = new Student($row['adm']);
-	$pays = $students->getSum($row['adm'],$pymt);
-	$paymentSummary = new PaymentSummary($row['adm'],$pymt,$pays);
-	$amt = mysqli_fetch_array($paymentSummary->getSummary($row['adm'],$pymt,$condition,$amount));
-
-	?>
-<tr>
-    <td><?php echo $student->getName();?></td>
-    <td><?php echo $student->getAdm();?></td>
-    <td><?php echo $student->getClass();?></td>
-    <td>Ksh. <?php echo $amt['amount'];?>.00</td>
-</tr>
-<?php
+//gets reports of all students
+$class = $_GET['class'];
+$payment = $_GET['pymt'];
+$condition = $_GET['cnd'];
+$amt = $_GET['amt'];
+if ($class == 'any') {
+$sql = "SELECT * FROM students";
+}else{
+$sql = "SELECT * FROM students WHERE class LIKE '%$class'";
 }
-?>
-</tbody>
-</table>
-<?php
+$query = mysqli_query($conn,$sql = "SELECT * FROM students WHERE class LIKE '%$class'");
+print_r($query);
+//loop through all the students to update payment summary information
+while ($row = mysqli_fetch_array($query)) {
+	$adm = $row['adm'];
+	$sql = "SELECT * FROM fees_payments WHERE adm = '$adm' AND p_for ='$payment'";
+	$query = mysqli_query($conn, $sql);
+	//no payments made yet
+	if(mysqli_num_rows($query) == 0){
+		//insert into payment summary- no payment made
+		$adm = $row['adm'];
+		$sql = "INSERT INTO payments_summary(adm, p_for, amount) VALUES('$adm', '$payment','0')";
+		$query = mysqli_query($conn, $sql);
+	}else{
+		//get sum paid per the payment by a student
+		$pay = new Payment();
+		$paid = $pay->getTotalAmtPaid($row['adm'], $payment);
+		//update payment
+		$sql = "UPDATE payments_summary SET amount = '$paid' WHERE adm = '$adm' AND p_for = '$payment'";
+		$query = mysqli_query($conn, $sql);
+	}
+
+}
+
+//get reports data
+$summarySql = "SELECT * FROM payments_summary WHERE adm = (SELECT adm FROM students WHERE class LIKE '$class') AND p_for = '$payment' AND amount $condition $amt";
+$query = mysqli_query($conn, $summarySql);
+//fill in the response into an array
+$response = [];
+while($row = mysqli_fetch_array($query)){
+	$student = new Student($row['adm']);
+	$data = array(
+		'name' => $student->getName(),
+		'adm' => $student->getAdm(),
+		'class' => $student->getClass(),
+		'amount' => $row['amount']
+	);
+	array_push($response, $data);
+}
+
+//echo json data
+echo json_encode($response);
+return;
+
 }
 ///////////////////////////////////////////////////////
 //gets payment records of one student
@@ -128,7 +143,7 @@ elseif (isset($_GET['getOne'])) {
 	$adm = $_GET['adm'];
 	$pymt = $_GET['pymt'];
 	$bal_rep = $_GET['bal_rep'];
-	//get if the student exists
+	//check if the student exists
 $sql="SELECT * FROM students WHERE adm='$adm'";
 $query = mysqli_query($conn,$sql);
 if (mysqli_num_rows($query) == 0) {
@@ -233,9 +248,9 @@ elseif (isset($_GET['getOverall'])) {
         <td><?php echo $student->getName(); ?></td>
         <td><?php echo $student->getAdm(); ?></td>
         <td><?php echo $student->getClass(); ?></td>
-        <td><i>Ksh.</i> <?php echo $row['amount_paid']; ?></td>
+        <td><i></i> <?php echo number_format($row['amount_paid'], 2); ?></td>
         <td><?php echo $row['time']; ?></td>
-        <td><?php echo $row['receipt_img']; ?></td>
+        <td onclick="openReceiptPreview(this)" receipt-img="<?php echo $row['receipt_img']; ?>" data-for="<?php echo $student->getName(); ?>" style="cursor: pointer;">View Receipt</td>
     </tr>
 </tbody>
 	<?php
@@ -253,19 +268,19 @@ elseif (isset($_GET['getSummary'])) {
          <b>Total Amount To Be Paid:</b>
         </div>
         <div class="col-md-4">
- <i>Ksh.</i><input type="number" name="" id="totalAmt" class="form-control" value="<?php echo $payment->getAmtToBePaid($pymt); ?>"> 
+ <i>Ksh.</i><input type="text" name="" id="totalAmt" class="form-control" value="<?php echo number_format($payment->getAmtToBePaid($pymt), 2); ?>"> 
 </div>
 <div class="col-md-8">
         <b>Total Amount Paid:</b>
     </div>
     <div class="col-md-4">
-  <i>Ksh.</i><input type="number" name="" id="amtPaid" class="form-control" value="<?php echo $payment->getAmtPaid($pymt); ?>"> 
+  <i>Ksh.</i><input type="text" name="" id="amtPaid" class="form-control" value="<?php echo number_format($payment->getAmtPaid($pymt), 2); ?>"> 
 </div>
  <div class="col-md-8">
          <b>Balance:</b>
     </div>
     <div class="col-md-4">
-   <i>Ksh.</i><input type="number" name="" id="balance" class="form-control" value="<?php echo $payment->getAmtToBePaid($pymt)-$payment->getAmtPaid($pymt); ?>"> 
+   <i>Ksh.</i><input type="text" name="" id="balance" class="form-control" value="<?php echo number_format($payment->getAmtToBePaid($pymt)-$payment->getAmtPaid($pymt),2); ?>"> 
 </div>
  </div>
 	<?php

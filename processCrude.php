@@ -70,8 +70,58 @@ elseif (isset($_GET['payableId'])) {
 //////////////////////////////////////////////////////////////
 elseif (isset($_GET['getAll'])) {
 //gets reports of all students
-	
+	$class = $_GET['class'];
+	$payment = $_GET['pymt'];
+	$condition = $_GET['cnd'];
+	$amt = $_GET['amt'];
+	if ($class == 'any') {
+	$sql = "SELECT * FROM students";
+	}else{
+	$sql = "SELECT * FROM students WHERE class LIKE '%$class'";
+	}
+	$query = mysqli_query($conn, $sql);
 
+	//loop through all the students to update payment summary information
+	while ($row = mysqli_fetch_array($query)) {
+		$adm = $row['adm'];
+		$sql = "SELECT * FROM fees_payments WHERE adm = '$adm' AND p_for ='$payment'";
+		$query = mysqli_query($conn, $sql);
+		//no payments made yet
+		if(mysqli_num_rows($query) == 0){
+			//insert into payment summary- no payment made
+			$adm = $row['adm'];
+			$sql = "INSERT INTO payments_summary(adm, p_for, amount) VALUES('$adm', '$payment','0')";
+			$query = mysqli_query($conn, $sql);
+		}else{
+			//get sum paid per the payment by a student
+			$pay = new Payment();
+			$paid = $pay->getTotalAmtPaid($row['adm'], $payment);
+			//update payment
+			$sql = "UPDATE payments_summary SET amount = '$paid' WHERE adm = '$adm' AND p_for = '$payment'";
+			$query = mysqli-query($conn, $sql);
+		}
+
+	}
+
+	//get reports data
+	$summarySql = "SELECT * FROM payments_summary WHERE adm = (SELECT adm FROM students WHERE class LIKE '$class') AND p_for = '$payment' AND amount $condition $amt";
+	$query = mysqli_query($conn, $summarySql);
+	//fill in the response into an array
+	$response = [];
+	while($row = mysqli_fetch_array($query)){
+		$student = new Student($row['adm']);
+		$data = array(
+			'name' => $student->getName(),
+			'adm' => $student->getAdm(),
+			'class' => $student->getClass(),
+			'amount' => $row['amount']
+		);
+		array_push($response, $data);
+	}
+
+	//echo json data
+	echo json_encode($response);
+	return;
 }
 /////////////////////////////////////////////////////////////
 //getting users feedback

@@ -11,7 +11,7 @@ include 'components/header.php';
 		<div class="modal-content">
 			<div class="modal-header tit-up">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Customer Login</h4>
+				<h4 class="modal-title">Login</h4>
 			</div>
 			<div class="modal-body customer-box">
 				<!-- Nav tabs -->
@@ -25,12 +25,12 @@ include 'components/header.php';
 						<form role="form" class="form-horizontal">
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email1" placeholder="Name" type="text">
+									<input class="form-control" id="adm" placeholder="Admission Number" type="text">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+									<input class="form-control" id="exampleInputPassword1" placeholder="Password" type="password">
 								</div>
 							</div>
 							<div class="row">
@@ -52,12 +52,12 @@ include 'components/header.php';
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="email" placeholder="Email" type="email">
+									<input class="form-control" id="class" placeholder="Class" type="text">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+									<input class="form-control" id="adm" placeholder="Admission Number" type="text">
 								</div>
 							</div>
 							<div class="form-group">
@@ -81,6 +81,7 @@ include 'components/header.php';
 		</div>
 	  </div>
 	</div>
+
 	<!-- Start header -->
 	<?php
 	include 'components/navBar.php';
@@ -93,6 +94,8 @@ include 'components/header.php';
 			<li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselExampleControls" data-slide-to="1"></li>
 			<li data-target="#carouselExampleControls" data-slide-to="2"></li>
+			<li data-target="#carouselExampleControls" data-slide-to="3"></li>
+			<li data-target="#carouselExampleControls" data-slide-to="4"></li>
 		</ol>
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">

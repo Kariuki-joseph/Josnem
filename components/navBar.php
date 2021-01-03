@@ -100,7 +100,7 @@
 									<div class="validate"></div>
 								</div>
 								<div class="form-group">
-									<input type="file" name="receipt" id="receipt" class="form-control" data-msg="Plese select the payment receipt to continue.">
+									<input type="file" name="receipt" id="receipt" type="image/" class="form-control" data-msg="Plese select the payment receipt to continue.">
 									<div class="validate"></div>
 								</div>
 								<div class="receipt_preview">
