@@ -38,7 +38,7 @@ include 'headerDesktop.php';
                                         <p>This tab helps you to add a new payment plan e.g. for first term 2020 school fees, new trip that the students have to pay etc.</p>
 
                                         <h5 class="pt-3">Add Upcoming Payments</h5>
-                                        <p>This tab helps you to add the payments that need be paid at specific times. The added payments will be available in the school app and website for paarents to make payments on.</p>
+                                        <p>This tab helps you to add the payments that need be paid at specific times. Parents can only pay for fees that are only listed in the upcoming section.</p>
 
                                         <h5 class="pt-3">Reports-All Students</h5>
                                         <p>This tab helps analyse payments and reports from all the students.</p>

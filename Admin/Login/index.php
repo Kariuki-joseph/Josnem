@@ -100,8 +100,8 @@ session_start();
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="../forget-pass.html">
-							Forgot Password?
+						<a class="txt1" href="../Register/">
+							Dont have an account? Register here
 						</a>
 					</div>
 				</form>

@@ -26,21 +26,11 @@ if (mysqli_num_rows($query) == 0) {
     if (mysqli_num_rows($updateSelectQuery) == 0) {
         //insert new record with payment amount 0
         $insertQuery = mysqli_query($conn, "INSERT INTO payments_summary(adm, p_for, amount) VALUES('$adm','$payment','0')");
-        if ($insertQuery) {
-           echo "INSERTED INTO SUMMARY TABLE WITH NEW DATA";
-        } else {
-            echo "FAILED TO INSERT INTO SUMMARY TABLE WITH NEW DATA";
-        }
         
     }else{
         //update the amount to zero
     $updateSql = "UPDATE payments_summary SET amount = '0' WHERE adm = '$adm' AND p_for = '$payment'";
     $updateQuery = mysqli_query($conn, $updateSql);
-    if ($updateQuery) {
-        echo "UPDATED SUMMARY WITH AMOUNT 0";
-    }else {
-        echo "Failed to update SUMMARY WITH AMOUNT 0";
-    }
     }
     
 }else{
@@ -62,11 +52,6 @@ if (mysqli_num_rows($query) == 0) {
     $updatedSumQuery  = mysqli_query($conn, $updatedSumSql);
     }
    
-    if ($updatedSumQuery) {
-       echo "Updated summary table with new sum";
-    }else {
-        echo "Failed to update summary table with new sum";
-    }
 }
 }
 
@@ -75,20 +60,29 @@ if (mysqli_num_rows($query) == 0) {
 include '../classes.php';
 $resp = [];
 //loop through classes
-$selectByClassesQuery = mysqli_query($conn, "SELECT * FROM students WHERE class = '$class'");
+//check if class variable holds 'any'
+if ($class == 'any') {
+    $selectByClassesQuery = mysqli_query($conn, "SELECT * FROM students");
+}else{
+    $selectByClassesQuery = mysqli_query($conn, "SELECT * FROM students WHERE class = '$class'");
+}
+
 while ($classRow = mysqli_fetch_array($selectByClassesQuery)) {
     $adm_c = $classRow['adm'];
     $student = new Student($adm_c);
     $reportQuery = mysqli_query($conn, "SELECT * FROM payments_summary WHERE adm = '$adm_c' AND p_for = '$payment' AND amount $condition $amount");
-    $reportData = mysqli_fetch_array($reportQuery);
+    if (mysqli_num_rows($reportQuery) != 0) {
+     $reportData = mysqli_fetch_array($reportQuery);
     //push the data into the array
     $report = array(
         'name'=>$student->getName(),
         'adm'=>$student->getAdm(),
         'class'=>$student->getClass(),
-        'amt'=>$reportData['amount']
+        'amt'=>number_format($reportData['amount'],2)
     );
     array_push($resp, $report);
+    }
 }
-print_r($resp);
+// echo json response
+echo json_encode($resp);
 ?>

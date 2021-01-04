@@ -105,6 +105,9 @@ session_start();
 						Register
 						</button>
 					</div>
+					<div class="text-center mt-4">
+					<a href="../Login/" class="text-white">Already have an account? Login here</a>
+					</div>
 				</form>
 			</div>
 		</div>

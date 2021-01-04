@@ -22,6 +22,19 @@ return true;
  return false; 
 }
 
+//showing a loading process
+function startLoader(elem, msg){
+	let targetElem = document.querySelector(elem);
+	targetElem.innerHTML='<i>'+msg+'</i>';
+}
+function stopLoader(elem, msg){
+	let targetElem = document.querySelector(elem);
+	targetElem.innerHTML=msg;
+}
+
+function startLoader(elem){
+	let targetElem = document.querySelector(elem)
+}
 let btnAddPayable = document.querySelectorAll('#btnAddPayable'); 
 let btnRemovePayable = document.querySelectorAll('#btnRemovePayable');
 
@@ -67,16 +80,36 @@ queryParams.append('amount', amount);
 fetch('process-get-reports-all.php',{
 	method: 'POST',
 	body: queryParams
-}).then(response=>response.text())
-.then(response={
+}).then(response=>response.json())
+.then(response=>{
+	//if no data was foud
+	if (response.length == 0) {
+		document.querySelector('#reportData').innerHTML=
+		`
+		<div class="alert alert-danger text-center">
+		<a href='#' class='close' data-dismiss='alert'>&times;</a>
+		No data matching this criteria was found. Please try again.
+		</div>
+		`;
+		return;
+	}
+	//loop throught the data
+	let tr = '<tbody>';
+	for (let i = 0; i < response.length; i++) {
+		tr +=
+		`<tr>
+			<td>${response[i].name}</td>
+			<td>${response[i].adm}</td>
+			<td>${response[i].class}</td>
+			<td>${response[i].amt}</td>
+		</tr>
+		`;
+	}
+	tr +='</tbody>';
+	//display the data
+	document.querySelector('#reportData').innerHTML=tr;
 
 }).catch(err=>console.log(err));
-// xhr("processCrude.php?getAll=true&pymt="+payment+"&cnd="+condition+"&amt="+amount+"&class="+cls,
-// function(res){
-// 	//  document.querySelector('#tblResults').innerHTML=res; 
-// 	console.log(res);
-// });
-
 });
 
  //reports All students onchange  //payment change 
@@ -156,7 +189,7 @@ function addDepartmentCategory(){
 	});
 }
 
-//preview of receipts
+//preview of receipts-reports overall
 function openReceiptPreview(receiptHolder){
 let receiptSrc = receiptHolder.getAttribute('receipt-img');
 let receipt_for = receiptHolder.getAttribute('data-for');
@@ -166,4 +199,17 @@ receiptImage.setAttribute('src', receiptSrc);
 receiptHeader.innerHTML='Receipt for: '+receipt_for;
 $('#modal_receipt_preview').modal('show');
 
+}
+
+//preview receipts - specific student
+function viewReceipt(receiptHolder){
+	let receiptSrc = receiptHolder.getAttribute('data-img-src');
+	let receipt_for = receiptHolder.getAttribute('data-for');
+	//title
+	document.querySelector('#modal-student-receipt-preview div.modal-header').innerHTML="Payment receipt for: "+receipt_for;
+	//receipt image
+	document.querySelector('#payment-receipt-image').setAttribute('src', receiptSrc);
+	//show modal
+	$('#modal-student-receipt-preview').modal('show');
+	
 }

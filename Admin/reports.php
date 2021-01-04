@@ -88,6 +88,14 @@ include 'header.php';
                                                 <th>Amount</th>
                                              </tr>
                                         </thead>
+                                        <tbody id="reportData">
+                                        <!-- <tr>
+                                            <td>Joseph Njenga</td>
+                                            <td>13614</td>
+                                            <td>4D</td>
+                                            <td>KSH 400</td>
+                                        </tr> -->
+                                        </tbody>
                                     </table>
                                 </div>
                                 <!-- END DATA TABLE-->

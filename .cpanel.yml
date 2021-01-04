@@ -13,7 +13,7 @@
       - /bin/cp -r Login/ $DEPLOYPATH
       - /bin/cp -r classes.php $DEPLOYPATH
       - /bin/cp -r contacts.php $DEPLOYPATH
-      - /bin/cp -r departments.php $DEPLOYPAsTH
+      - /bin/cp -r departments.php $DEPLOYPATH
       - /bin/cp -r fees_upload.php $DEPLOYPATH
       - /bin/cp -r feesPayment.php $DEPLOYPATH
       - /bin/cp -r gallery.php $DEPLOYPATH

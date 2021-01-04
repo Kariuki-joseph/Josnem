@@ -14,6 +14,20 @@ include 'menuSideBar.php';
             <?php
 include 'headerDesktop.php';
             ?> 
+            <!--receipt preview modal-->
+            <div class="modal fade" id="modal-student-receipt-preview" role="modal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header"></div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <img src="" alt="Receipt for this payment seems to be missing." id="payment-receipt-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--receipt preview modal-->
 <!--MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -29,7 +43,6 @@ include 'headerDesktop.php';
                                         <input type="number" name="adm" class="form-control" placeholder="Adm No." id="admNo">
                                         <div class="dropDownSelect2"></div>
                                     </div>
-
                                     <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
                                             <select class="js-select2" name="property" id="paymentFor" onchange="fetchByPayment(this.value);">
 

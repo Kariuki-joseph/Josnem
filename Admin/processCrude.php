@@ -179,9 +179,9 @@ $student = new Student($adm);
 	    <td><?php echo $student->getName(); ?></td>
 	    <td><?php echo $student->getAdm(); ?></td>
 	    <td><?php echo $student->getClass(); ?></td>
-	    <td>Ksh. <?php echo $payment->getAmtToBePaid($pymt); ?></td>
-	    <td>Ksh. <?php echo $payment->getTotalAmtPaid($adm,$pymt); ?></td>    
-	    <td>Ksh. <?php echo $payment->getBalance($payment->getAmtToBePaid($pymt),$payment->getTotalAmtPaid($adm,$pymt)); ?></td>
+	    <td>Ksh. <?php echo number_format($payment->getAmtToBePaid($pymt),2); ?></td>
+	    <td>Ksh. <?php echo number_format($payment->getTotalAmtPaid($adm,$pymt),2); ?></td>    
+	    <td>Ksh. <?php echo number_format($payment->getBalance($payment->getAmtToBePaid($pymt),$payment->getTotalAmtPaid($adm,$pymt)),2); ?></td>
 	</tr>
 </tbody>
 <?php
@@ -211,9 +211,9 @@ while ( $row = mysqli_fetch_array($rows)) {
 		<td><?php echo $student->getName(); ?></td>
 		<td><?php echo $student->getAdm(); ?></td>
 		<td><?php echo $student->getClass(); ?></td>
-		<td><?php echo $row['amount_paid']; ?></td>
+		<td><?php echo number_format($row['amount_paid'],2); ?></td>
 		<td><?php echo $row['time']; ?></td>
-		<td><?php echo $row['receipt_img']; ?></td>
+		<td data-img-src="<?php echo $row['receipt_img']; ?>" data-for="<?php echo $student->getName(); ?>" style="cursor: pointer;" onclick="viewReceipt(this)">View Receipt</td>
 	</tr>
 </tbody>
 <?php
